@@ -1,5 +1,5 @@
 export abstract class Liste {
-    private liste: Set<any>
+    protected liste: Set<any> = new Set<any>()
 
     abstract ajouter(element: any): void
     abstract modifier(element: any): void

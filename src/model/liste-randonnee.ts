@@ -1,10 +1,9 @@
 import { Liste } from './../core/list/liste';
 import { Randonnee } from './randonnee';
 export class ListeRandonnee extends Liste {
-    private randonnees: Set<Randonnee> = new Set<Randonnee>()
 
     public ajouter(randonnee: Randonnee): void {
-        this.randonnees.add(randonnee)
+        this.liste.add(randonnee)
     }
 
     public modifier(randonnee: Randonnee): void {}
@@ -14,7 +13,7 @@ export class ListeRandonnee extends Liste {
     public afficherListe(): string {
         let liste: string = "Liste des randonnées\n\n"
 
-        this.randonnees.forEach((randonnee) => {
+        this.liste.forEach((randonnee) => {
             liste += randonnee.getNom() + ' (' + randonnee.getNbKilometre() + ' Km)\n' 
         })
 
