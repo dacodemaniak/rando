@@ -15,5 +15,12 @@ export class ListeRandonnee {
 
         return liste
     }
+
+    public render(): HTMLElement {
+        const title: HTMLElement = document.createElement('h1')
+        title.textContent = 'Liste des randonnées'
+
+        return title
+    }
     
 }

@@ -7,6 +7,7 @@ import * as M from 'materialize-css'
 import './scss/main.scss'
 import { Randonnee } from './model/randonnee';
 
+console.log('DOM is loading...')
 /**
  * @name Main
  * @author IDea Factory - Juil. 2020 - jean-luc.a@ideafactory.fr
@@ -44,14 +45,15 @@ class Main {
         // Afficher dans la console les randonnées
         console.log(liste.afficherListe())
 
+        const app: HTMLElement = document.querySelector('[App]')
+        
+        app.append(
+            liste.render()
+        )
     }
 }
 
-(() => {
-    const app = new Main()
-
-    // Materialize select element handling
-    const elements = document.querySelectorAll('select')
-    const instances = M.FormSelect.init(elements, {})
-})()
+document.addEventListener('DOMContentLoaded', (event) => {
+    new Main()
+})
 
