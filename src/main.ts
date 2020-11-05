@@ -39,8 +39,8 @@ class Main {
 
         // Créer une instance de liste de randonnées
         const liste = new ListeRandonnee()
-        liste.ajouterRandonnee(rando1)
-        liste.ajouterRandonnee(rando2)
+        liste.ajouter(rando1)
+        liste.ajouter(rando2)
 
         // Afficher dans la console les randonnées
         console.log(liste.afficherListe())

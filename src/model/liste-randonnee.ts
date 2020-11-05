@@ -1,10 +1,15 @@
+import { Liste } from './../core/list/liste';
 import { Randonnee } from './randonnee';
-export class ListeRandonnee {
+export class ListeRandonnee extends Liste {
     private randonnees: Set<Randonnee> = new Set<Randonnee>()
 
-    public ajouterRandonnee(randonnee: Randonnee): void {
+    public ajouter(randonnee: Randonnee): void {
         this.randonnees.add(randonnee)
     }
+
+    public modifier(randonnee: Randonnee): void {}
+
+    public supprimer(randonnee: Randonnee): void {}
 
     public afficherListe(): string {
         let liste: string = "Liste des randonnées\n\n"
