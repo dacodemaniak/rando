@@ -8,23 +8,11 @@ export class ListeRandonnee extends Liste {
 
     public modifier(randonnee: Randonnee): void {}
 
-    public supprimer(randonnee: Randonnee): void {}
-
-    public afficherListe(): string {
-        let liste: string = "Liste des randonnées\n\n"
-
-        this.liste.forEach((randonnee) => {
-            liste += randonnee.getNom() + ' (' + randonnee.getNbKilometre() + ' Km)\n' 
-        })
-
-        return liste
+    /**
+     * Override de méthode
+     * @param randonnee 
+     */
+    public supprimer(randonnee: Randonnee): void {
+        console.log('Non, je ne supprimerai pas !')
     }
-
-    public render(): HTMLElement {
-        const title: HTMLElement = document.createElement('h1')
-        title.textContent = 'Liste des randonnées'
-
-        return title
-    }
-    
 }

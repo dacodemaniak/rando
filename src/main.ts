@@ -6,6 +6,7 @@ import * as M from 'materialize-css'
 
 import './scss/main.scss'
 import { Randonnee } from './model/randonnee';
+import { RandonneeController } from './controller/randonnee/randonnee-controller';
 
 console.log('DOM is loading...')
 /**
@@ -42,14 +43,10 @@ class Main {
         liste.ajouter(rando1)
         liste.ajouter(rando2)
 
-        // Afficher dans la console les randonnées
-        console.log(liste.afficherListe())
+        // Instance de RandonneeController
+        const randonneeController = new RandonneeController(liste)
 
         const app: HTMLElement = document.querySelector('[App]')
-        
-        app.append(
-            liste.render()
-        )
     }
 }
 
