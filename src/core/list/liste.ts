@@ -8,7 +8,7 @@ export abstract class Liste {
         this.liste.delete(element)
     }
 
-    public recuperer(): any {
+    public recuperer(): Set<any> {
         return this.liste
     }
 

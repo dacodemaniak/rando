@@ -10,6 +10,7 @@ import { RandonneeController } from './controller/randonnee/randonnee-controller
 import { TitleOnlyStrategy } from './controller/randonnee/strategies/title-only-strategy';
 import { TitleKilometreStrategy } from './controller/randonnee/strategies/title-kilometre-strategy';
 import { TitleNiveauKilometreStrategy } from './controller/randonnee/strategies/title-niveau-kilometre-strategy';
+import { RandonneeFactory } from './model/factory/randonnee-factory';
 
 console.log('DOM is loading...')
 /**
@@ -33,20 +34,35 @@ class Main {
         jeanluc.setFamille(false)
 
         // Créer deux randonnées
-        const rando1 = new Randonnee()
-        rando1.setNom('PR20')
-        rando1.setNiveauDifficulte(5)
-        rando1.setNbKilometre(20)
+        const rando1 = new RandonneeFactory().build(
+            'PR20',
+            5,
+            0,
+            55,
+            3
+        )
 
         const rando2 = new Randonnee()
         rando2.setNom('PR21')
         rando2.setNiveauDifficulte(3)
         rando2.setNbKilometre(21)
+        rando2.setAgeMini(15)
+        rando2.setAgeMaxi(35)
+
+        const rando3: Randonnee = new RandonneeFactory().build(
+            'PR3', 4, 0, 77, 15
+        )
+
+        const rando4: Randonnee = new RandonneeFactory().build(
+            'PR4', 5
+        )
 
         // Créer une instance de liste de randonnées
         const liste = new ListeRandonnee()
         liste.ajouter(rando1)
         liste.ajouter(rando2)
+        liste.ajouter(rando3)
+        liste.ajouter(rando4)
 
         // Instance de RandonneeController
         const randonneeController = new RandonneeController(liste)
@@ -55,6 +71,7 @@ class Main {
         // Récupérer un objet du document HTML (Interface Homme Machine)
         const app: HTMLElement = document.querySelector('[App]')
         app.innerHTML = randonneeController.asListe()
+        app.innerHTML = app.innerHTML + randonneeController.detail(rando2)
     }
 }
 
